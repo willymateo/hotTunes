@@ -18,6 +18,8 @@
   },
   "plugins": ["react"],
   "rules": {
+    //Require js doc to any component.
+    "require-jsdoc": "off",
     //Semicolon at end of line.
     "semi": ["error", "always"],
     //Double quotes.
