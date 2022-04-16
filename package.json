@@ -1,18 +1,28 @@
 {
   "name": "hottunes",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "The best music libary at the moment",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config ./config/vite.config.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier:check": "prettier --check . --config ./config/.prettierrc.json --ignore-path ./config/.prettierignore ",
+    "prettier:write": "prettier --write . --ignore-unknown  --config ./config/.prettierrc.json --ignore-path ./config/.prettierignore ",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
+    "prettier": "2.6.2",
     "vite": "^2.9.0"
   }
 }
