@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "The best music libary at the moment",
   "scripts": {
-    "dev": "vite --config ./config/vite.config.js",
+    "start:dev": "vite --config ./config/vite.config.js",
     "build": "vite build",
     "preview": "vite preview",
     "prettier:check": "prettier --check . --config ./config/.prettierrc.json --ignore-path ./config/.prettierignore ",
@@ -15,6 +15,7 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "framer-motion": "^6.3.0",
     "react": "^17.0.2",
