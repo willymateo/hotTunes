@@ -14,6 +14,7 @@ const getTopTracks = async () => {
     return res.data.data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
@@ -30,6 +31,7 @@ const getTopArtists = async () => {
     return res.data.data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
@@ -46,6 +48,7 @@ const getTopAlbums = async () => {
     return res.data.data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
@@ -62,6 +65,7 @@ const getTopPlaylists = async () => {
     return res.data.data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
