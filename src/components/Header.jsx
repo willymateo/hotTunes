@@ -1,10 +1,4 @@
-import {
-  Box,
-  Icon,
-  Input,
-  InputGroup,
-  InputLeftElement,
-} from "@chakra-ui/react";
+import { Box, Icon, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { IoSearchCircleOutline } from "react-icons/io5";
 
 function Header() {

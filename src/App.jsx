@@ -1,77 +1,41 @@
-import { Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
+import { Playlists } from "./routes/Playlists";
 import { Grid, GridItem } from "@chakra-ui/react";
-import { musicAPI } from "./services/musicAPI";
+import { Routes, Route } from "react-router-dom";
+import { Artists } from "./routes/Artists";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { Radio } from "./components/Radio";
-import { Tracks } from "./components/Tracks";
-import { Playlists } from "./components/Playlists";
-import { Albums } from "./components/Albums";
-import { Artists } from "./components/Artists";
-import { Home } from "./components/Home";
-import { Genres } from "./components/Genres";
-import { useState, useEffect } from "react";
+import { Tracks } from "./routes/Tracks";
+import { Albums } from "./routes/Albums";
+import { Genres } from "./routes/Genres";
+import { Radio } from "./routes/Radio";
+import { Home } from "./routes/Home";
 
 function App() {
-  const [topTracks, setTopTracks] = useState([]);
-  const [topArtists, setTopArtists] = useState([]);
-  const [topAlbums, setTopAlbums] = useState([]);
-  const [topPlaylists, setTopPlaylists] = useState([]);
-
-  const menuEntries = [
-    "Radio",
-    "Tracks",
-    "Playlists",
-    "Albums",
-    "Artists",
-    "Genres",
-  ];
-
-  useEffect(() => {
-    musicAPI.getTopTracks().then(setTopTracks);
-    musicAPI.getTopArtists().then(setTopArtists);
-    musicAPI.getTopAlbums().then(setTopAlbums);
-    musicAPI.getTopPlaylists().then(setTopPlaylists);
-  }, []);
+  const menuEntries = ["Radio", "Tracks", "Playlists", "Albums", "Artists", "Genres"];
 
   return (
     <>
-      <Grid
-        templateRows="10% repeat(5, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        style={{ minHeight: "100vh" }}>
-        <GridItem rowSpan="6" colSpan="1">
+      <Grid templateRows="10% 90%" templateColumns="20% 80%" minHeight="100vh" rowGap="0.5rem">
+        <GridItem rowStart="1" rowEnd="3" colStart="1" colEnd="2">
           <Navigation menuEntries={menuEntries} />
         </GridItem>
 
-        <GridItem rowSpan="1" colSpan="4">
+        <GridItem rowStart="1" rowEnd="2" colStart="2" colEnd="3">
           <Header />
         </GridItem>
 
-        <GridItem rowSpan="5" colSpan="4">
+        <GridItem rowStart="2" rowEnd="3" colStart="2" colEnd="3">
           <section>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/radio" element={<Radio />} />
-              <Route path="/tracks" element={<Tracks tracks={topTracks} />} />
-              <Route
-                path="/playlists"
-                element={<Playlists playlists={topPlaylists} />}
-              />
-              <Route path="/albums" element={<Albums albums={topAlbums} />} />
-              <Route
-                path="/artists"
-                element={<Artists artists={topArtists} />}
-              />
-              <Route path="/genres" element={<Genres />} />
+              <Route path="radio" element={<Radio />} />
+              <Route path="tracks" element={<Tracks />} />
+              <Route path="playlists" element={<Playlists />} />
+              <Route path="albums" element={<Albums />} />
+              <Route path="artists" element={<Artists />} />
+              <Route path="genres" element={<Genres />} />
             </Routes>
-
-            <ul>
-              {topTracks.map(track => (
-                <li key={track.id}>{track.title_short}</li>
-              ))}
-            </ul>
           </section>
           <Footer menuEntries={menuEntries} />
         </GridItem>

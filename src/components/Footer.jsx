@@ -1,21 +1,7 @@
-import {
-  Twitter,
-  TelegramCircled,
-  GoogleCircled,
-  Copyright,
-} from "iconoir-react";
+import { Twitter, TelegramCircled, GoogleCircled, Copyright } from "iconoir-react";
 import { PropTypes } from "prop-types";
 import { RiNeteaseCloudMusicFill } from "react-icons/ri";
-import {
-  Box,
-  Text,
-  Divider,
-  Flex,
-  Icon,
-  Link,
-  VStack,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Text, Divider, Flex, Icon, Link, VStack, HStack } from "@chakra-ui/react";
 
 function Footer({ menuEntries }) {
   return (

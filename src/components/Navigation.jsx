@@ -1,17 +1,20 @@
-import { Box, Flex, Heading, Link, VStack } from "@chakra-ui/react";
+import { Box, Flex, Spacer, Heading, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 function Navigation({ menuEntries }) {
   return (
-    <Flex flexDir="column" justifyContent="space-evenly">
+    <Flex flexFlow="column wrap" alignItems="center" rowGap="1rem" minHeight="100vh">
       <Box as="nav">
         <Heading as="h1" fontFamily="Molle">
-          <Link href="/">{import.meta.env.VITE_APP_TITLE}</Link>
+          <Link to="/">{import.meta.env.VITE_APP_TITLE}</Link>
         </Heading>
       </Box>
       <VStack>
         {menuEntries.map((entry, index) => (
-          <Link key={index}>{entry}</Link>
+          <Link key={index} to={entry.toLowerCase()}>
+            {entry}
+          </Link>
         ))}
       </VStack>
     </Flex>
