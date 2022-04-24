@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 
 function Navigation({ menuEntries }) {
   return (
-    <Flex flexFlow="column wrap" alignItems="center" rowGap="1rem" minHeight="100vh">
+    <Flex flexFlow="column wrap" alignItems="center" rowGap="1rem" minHeight="100%">
       <Box as="nav">
         <Heading as="h1" fontFamily="Molle">
           <Link to="/">{import.meta.env.VITE_APP_TITLE}</Link>
