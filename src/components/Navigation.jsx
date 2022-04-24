@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 function Navigation({ menuEntries }) {
   return (
-    <Flex flexDir="column" justifyContent="center">
+    <Flex flexDir="column" justifyContent="space-evenly">
       <Box as="nav">
         <Heading as="h1" fontFamily="Molle">
           <Link href="/">{import.meta.env.VITE_APP_TITLE}</Link>
