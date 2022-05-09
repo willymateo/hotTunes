@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, Heading, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
