@@ -1,12 +1,12 @@
 {
-  "name": "hottunes",
+  "name": "nightlytunes",
   "private": true,
   "version": "0.0.1",
   "description": "The best music libary at the moment",
   "scripts": {
     "start:dev": "vite --config ./config/vite.config.js",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "vite build --config ./config/vite.config.js",
+    "preview": "vite preview --config ./config/vite.config.js",
     "prettier:check": "prettier --check . --ignore-path ./config/.prettierignore",
     "prettier:write": "prettier --write . --ignore-path ./config/.prettierignore --ignore-unknown",
     "prepare": "husky install"
