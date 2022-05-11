@@ -26,8 +26,8 @@
      inkscape:snap-bbox="false"
      inkscape:snap-global="true"
      inkscape:zoom="1.1525841"
-     inkscape:cx="81.122066"
-     inkscape:cy="153.13417"
+     inkscape:cx="75.482561"
+     inkscape:cy="153.13416"
      inkscape:window-width="1366"
      inkscape:window-height="708"
      inkscape:window-x="0"
@@ -54,14 +54,11 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-style:italic;font-size:156.084px;line-height:1.25;font-family:Molle;-inkscape-font-specification:'Molle, Italic';text-align:center;text-anchor:middle;opacity:1;fill-rule:nonzero;stroke-width:3.25175"
+       style="font-style:italic;font-size:156.084px;line-height:1.25;font-family:Molle;-inkscape-font-specification:'Molle, Italic';text-align:center;text-anchor:middle;opacity:1;fill-rule:nonzero;stroke-width:3.25175;font-weight:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
        x="128.24121"
        y="212.76132"
        id="text1904"><tspan
          sodipodi:role="line"
-         id="tspan1902"
-         x="128.24121"
-         y="212.76132"
-         style="stroke-width:3.25175">HT</tspan></text>
+         id="tspan970">NT</tspan></text>
   </g>
 </svg>

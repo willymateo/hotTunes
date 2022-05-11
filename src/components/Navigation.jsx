@@ -6,7 +6,7 @@ function Navigation({ menuEntries }) {
   return (
     <Flex flexFlow="column wrap" alignItems="center" rowGap="1rem" minHeight="100%">
       <Box as="nav">
-        <Heading as="h1" fontFamily="Molle">
+        <Heading as="h1" fontFamily="Molle" textAlign="center">
           <Link to="/">{import.meta.env.VITE_APP_TITLE}</Link>
         </Heading>
       </Box>

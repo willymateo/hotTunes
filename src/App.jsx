@@ -1,10 +1,10 @@
-import { Navigation } from "./components/Navigation";
-import { Playlists } from "./routes/Playlists";
 import { Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Navigation } from "./components/Navigation";
 import { Routes, Route } from "react-router-dom";
-import { Artists } from "./routes/Artists";
+import { Playlists } from "./routes/Playlists";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Artists } from "./routes/Artists";
 import { Tracks } from "./routes/Tracks";
 import { Albums } from "./routes/Albums";
 import { Genres } from "./routes/Genres";
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Grid templateRows="10% 90%" templateColumns="20% 80%" minHeight="100vh">
+      <Grid templateRows="45px auto" templateColumns="20% 80%" minHeight="100vh">
         <GridItem rowStart="1" rowEnd="3" colStart="1" colEnd="2">
           <Navigation menuEntries={menuEntries} />
         </GridItem>
@@ -26,7 +26,11 @@ function App() {
         </GridItem>
 
         <GridItem rowStart="2" rowEnd="3" colStart="2" colEnd="3">
-          <Flex flexFlow="column wrap" justifyContent="space-between" minHeight="100%">
+          <Flex
+            flexFlow="column wrap"
+            justifyContent="space-between"
+            rowGap="50px"
+            minHeight="100%">
             <section>
               <Routes>
                 <Route path="/" element={<Home />} />

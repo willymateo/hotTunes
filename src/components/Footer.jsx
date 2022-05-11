@@ -1,25 +1,28 @@
-import { Box, Text, Divider, Flex, Icon, Link, VStack, HStack } from "@chakra-ui/react";
+import { Box, Text, Divider, Flex, Icon, VStack, HStack } from "@chakra-ui/react";
 import { Twitter, TelegramCircled, GoogleCircled, Copyright } from "iconoir-react";
 import { RiNeteaseCloudMusicFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 function Footer({ menuEntries }) {
   return (
     <Box as="footer">
       <Divider />
-      <Flex justifyContent="space-around" alignItems="center" flexWrap="wrap">
+      <Flex justifyContent="space-around" alignItems="center" flexWrap="wrap" padding="2.5rem">
         <Box>
           <Text>
             2022
             <Icon as={Copyright} />
             <Text as="span" fontFamily="Molle">
-              {import.meta.env.VITE_APP_TITLE}
+              <Link to="/">{import.meta.env.VITE_APP_TITLE}</Link>
             </Text>
           </Text>
         </Box>
         <VStack>
           <Icon as={RiNeteaseCloudMusicFill} />
-          <Text>{import.meta.env.VITE_APP_OWNER}</Text>
+          <Text>
+            <Link to="https://github.com/willymateo">{import.meta.env.VITE_APP_OWNER}</Link>
+          </Text>
           <HStack>
             <Icon as={Twitter} />
             <Icon as={GoogleCircled} />
@@ -28,7 +31,9 @@ function Footer({ menuEntries }) {
         </VStack>
         <VStack>
           {menuEntries.map((entry, index) => (
-            <Link key={index}>{entry}</Link>
+            <Link key={index} to={entry.toLowerCase()}>
+              {entry}
+            </Link>
           ))}
         </VStack>
       </Flex>

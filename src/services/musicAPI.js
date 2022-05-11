@@ -1,5 +1,5 @@
-import axios from "axios";
 import { environment } from "../../config/environment";
+import axios from "axios";
 
 axios.defaults.baseURL = environment[import.meta.env.MODE].BASE_API_URL;
 axios.defaults.headers.common["apikey"] = import.meta.env.VITE_APP_API_KEY;
@@ -57,33 +57,11 @@ const getTopPlaylists = async () => {
   }
 };
 
-const getAlbumImages = async albumId => {
-  try {
-    const res = await axios.get(`/albums/${albumId}/images`);
-    return res.data.images;
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
-};
-
-const getArtistImages = async artistId => {
-  try {
-    const res = await axios.get(`/artists/${artistId}/images`);
-    return res.data.images;
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
-};
-
 const musicAPI = {
   getTopTracks,
   getTopArtists,
   getTopAlbums,
   getTopPlaylists,
-  getAlbumImages,
-  getArtistImages,
 };
 
 export { musicAPI };
