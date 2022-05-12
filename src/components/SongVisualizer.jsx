@@ -3,11 +3,11 @@ import { PlayOutline } from "iconoir-react";
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 
-function TopGeneralItem({ topNumber, title, subTitle, imageUrl }) {
+function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <Box width={{ base: "50%", sm: "25%", md: "25%", lg: "18%", xl: "18%", "2xl": "18%" }}>
+    <Box width={{ base: "100%", sm: "50%", md: "30%", lg: "20%" }} padding="0.5rem">
       <Box position="relative">
         <Image
           onMouseEnter={() => setShowControls(true)}
@@ -15,6 +15,7 @@ function TopGeneralItem({ topNumber, title, subTitle, imageUrl }) {
           src={imageUrl}
           fallback={title}
           borderRadius="4%"
+          width="100%"
         />
         {showControls && (
           <>
@@ -54,11 +55,11 @@ function TopGeneralItem({ topNumber, title, subTitle, imageUrl }) {
   );
 }
 
-TopGeneralItem.propTypes = {
+SongVisualizer.propTypes = {
   topNumber: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 
-export { TopGeneralItem };
+export { SongVisualizer };

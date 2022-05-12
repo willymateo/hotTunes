@@ -2,7 +2,7 @@ import { environment } from "../../config/environment";
 import axios from "axios";
 
 axios.defaults.baseURL = environment[import.meta.env.MODE].BASE_API_URL;
-axios.defaults.headers.common["apikey"] = import.meta.env.VITE_APP_API_KEY;
+axios.defaults.headers.common["apikey"] = import.meta.env.VITE_API_KEY;
 
 const params = {
   limit: 5,

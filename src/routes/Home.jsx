@@ -1,5 +1,5 @@
-import { TopGeneralItem } from "../components/TopGeneralItem";
-import { TopArtistItem } from "../components/TopArtistItem";
+import { ArtistVisualizer } from "../components/ArtistVisualizer";
+import { SongVisualizer } from "../components/SongVisualizer";
 import { environment } from "../../config/environment";
 import { Heading, Flex, Box } from "@chakra-ui/react";
 import { musicAPI } from "../services/musicAPI";
@@ -25,11 +25,13 @@ function Home() {
     <>
       <Flex flexFlow="column wrap" rowGap="2.5rem">
         <Box>
-          <Heading as="h2">Top Tracks</Heading>
-          <Flex flexFlow="row wrap" justifyContent="center" gap="2%">
+          <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
+            Top Tracks
+          </Heading>
+          <Flex flexFlow="row wrap" justifyContent="center">
             {topTracks.map((track, index) => {
               return (
-                <TopGeneralItem
+                <SongVisualizer
                   key={track.id}
                   topNumber={index + 1}
                   title={track.name}
@@ -44,11 +46,13 @@ function Home() {
         </Box>
 
         <Box>
-          <Heading as="h2">Top Artists</Heading>
-          <Flex flexFlow="row wrap" justifyContent="center" gap="2%">
+          <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
+            Top Artists
+          </Heading>
+          <Flex flexFlow="row wrap" justifyContent="center">
             {topArtists.map((artist, index) => {
               return (
-                <TopArtistItem
+                <ArtistVisualizer
                   key={artist.id}
                   artistTopNumber={index + 1}
                   artistName={artist.name}
@@ -62,11 +66,13 @@ function Home() {
         </Box>
 
         <Box>
-          <Heading as="h2">Top Albums</Heading>
-          <Flex flexFlow="row wrap" justifyContent="center" gap="2%">
+          <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
+            Top Albums
+          </Heading>
+          <Flex flexFlow="row wrap" justifyContent="center">
             {topAlbums.map((album, index) => {
               return (
-                <TopGeneralItem
+                <SongVisualizer
                   key={album.id}
                   topNumber={index + 1}
                   title={album.name}
@@ -81,11 +87,13 @@ function Home() {
         </Box>
 
         <Box>
-          <Heading as="h2">Top Playlists</Heading>
-          <Flex flexFlow="row wrap" justifyContent="center" gap="2%">
+          <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
+            Top Playlists
+          </Heading>
+          <Flex flexFlow="row wrap" justifyContent="center">
             {topPlaylists.map((playlist, index) => {
               return (
-                <TopGeneralItem
+                <SongVisualizer
                   key={playlist.id}
                   topNumber={index + 1}
                   title={playlist.name}

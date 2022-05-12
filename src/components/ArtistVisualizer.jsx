@@ -3,19 +3,21 @@ import { PlayOutline } from "iconoir-react";
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 
-function TopArtistItem({ artistTopNumber, artistName, imageUrl }) {
+function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <Box width={{ base: "50%", sm: "25%", md: "25%", lg: "18%", xl: "18%", "2xl": "18%" }}>
+    <Box width={{ base: "100%", sm: "50%", md: "30%", lg: "20%" }} padding="0.5rem">
       <Flex flexFlow="column wrap" rowGap="1rem">
         <Box position="relative">
           <Image
             onMouseEnter={() => setShowControls(true)}
             onMouseLeave={() => setShowControls(false)}
-            src={imageUrl}
+            sx={{ aspectRatio: "1/1" }}
             fallback={artistName}
-            clipPath="circle(closest-side)"
+            borderRadius="full"
+            objectFit="cover"
+            src={imageUrl}
           />
           {showControls && (
             <Tag
@@ -51,10 +53,10 @@ function TopArtistItem({ artistTopNumber, artistName, imageUrl }) {
   );
 }
 
-TopArtistItem.propTypes = {
+ArtistVisualizer.propTypes = {
   artistTopNumber: PropTypes.number.isRequired,
   artistName: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 
-export { TopArtistItem };
+export { ArtistVisualizer };
