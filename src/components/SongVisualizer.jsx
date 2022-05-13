@@ -7,7 +7,7 @@ function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <Box width={{ base: "100%", sm: "50%", md: "30%", lg: "20%" }} padding="0.5rem">
+    <Box width={{ base: "100%", sm: "30%", lg: "20%" }} padding="0.5rem">
       <Box position="relative">
         <Image
           onMouseEnter={() => setShowControls(true)}

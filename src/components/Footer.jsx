@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 function Footer({ menuEntries }) {
+  const iconWidth = { base: 6, sm: 4 };
+  const iconHeigth = { base: 6, sm: 4 };
+
   return (
     <Box as="footer" paddingY="2.5rem" paddingX="1rem">
       <Divider />
@@ -13,13 +16,13 @@ function Footer({ menuEntries }) {
         alignItems="center"
         paddingTop="2.5rem"
         gap="2rem">
-        <Text textAlign="center">
-          2022
+        <Flex flexFlow="row wrap" columnGap={2} justifyContent="center" alignItems="center">
+          <Text>2022</Text>
           <Icon as={Copyright} />
-          <Text as="span" fontFamily="Molle" fontSize="2xl">
+          <Text as="span" fontFamily="Molle" fontSize="2xl" textAlign="center">
             <Link to="/">{import.meta.env.VITE_APP_TITLE}</Link>
           </Text>
-        </Text>
+        </Flex>
 
         <VStack>
           <ExternalLink
@@ -31,13 +34,13 @@ function Footer({ menuEntries }) {
           </ExternalLink>
           <Flex flexFlow="row wrap" gap="0.5rem" justifyContent="center">
             <ExternalLink href="https://github.com/willymateo" isExternal>
-              <Icon as={GitHubOutline} />
+              <Icon as={GitHubOutline} width={iconWidth} height={iconHeigth} />
             </ExternalLink>
             <ExternalLink href="https://twitter.com/willymateoe" isExternal>
-              <Icon as={Twitter} />
+              <Icon as={Twitter} width={iconWidth} height={iconHeigth} />
             </ExternalLink>
-            <Icon as={GoogleCircled} />
-            <Icon as={TelegramCircled} />
+            <Icon as={GoogleCircled} width={iconWidth} height={iconHeigth} />
+            <Icon as={TelegramCircled} width={iconWidth} height={iconHeigth} />
           </Flex>
         </VStack>
 

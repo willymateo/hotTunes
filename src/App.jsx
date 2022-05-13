@@ -1,5 +1,5 @@
+import { Grid, GridItem, Hide } from "@chakra-ui/react";
 import { Navigation } from "./components/Navigation";
-import { Grid, GridItem } from "@chakra-ui/react";
 import { Routes, Route } from "react-router-dom";
 import { Playlists } from "./routes/Playlists";
 import { Footer } from "./components/Footer";
@@ -19,10 +19,12 @@ function App() {
       <Header />
 
       <Grid templateRows="1fr" templateColumns="20% 80%">
-        <GridItem rowStart="1" rowEnd="2" colStart="1" colEnd="2">
-          <Navigation menuEntries={menuEntries} />
-        </GridItem>
-        <GridItem rowStart="1" rowEnd="2" colStart="2" colEnd="3">
+        <Hide below="md">
+          <GridItem rowStart="1" rowEnd="2" colStart="1" colEnd="2">
+            <Navigation menuEntries={menuEntries} />
+          </GridItem>
+        </Hide>
+        <GridItem rowStart="1" rowEnd="2" colStart={{ base: "1", md: "2" }} colEnd="3">
           <section>
             <Routes>
               <Route path="/" element={<Home />} />

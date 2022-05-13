@@ -7,7 +7,7 @@ function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <Box width={{ base: "100%", sm: "50%", md: "30%", lg: "20%" }} padding="0.5rem">
+    <Box width={{ base: "100%", sm: "30%", lg: "20%" }} padding="0.5rem">
       <Flex flexFlow="column wrap" rowGap="1rem">
         <Box position="relative">
           <Image

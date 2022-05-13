@@ -10,7 +10,8 @@ const theme = extendTheme({
     "2xl": "1536px",
   },
   config: {
-    useSystemColorMode: true,
+    initialColorMode: "system",
+    useSystemColorMode: false,
   },
 });
 
