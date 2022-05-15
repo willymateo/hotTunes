@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header menuEntries={menuEntries} />
 
       <Grid templateRows="1fr" templateColumns="20% 80%">
         <Hide below="md">

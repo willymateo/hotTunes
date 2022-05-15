@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 function Footer({ menuEntries }) {
-  const iconWidth = { base: 6, sm: 4 };
-  const iconHeigth = { base: 6, sm: 4 };
+  const iconWidth = { base: 8, sm: 6 };
+  const iconHeigth = { base: 8, sm: 6 };
 
   return (
     <Box as="footer" paddingY="2.5rem" paddingX="1rem">

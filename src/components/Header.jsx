@@ -1,8 +1,11 @@
 import { IoSearchCircleOutline } from "react-icons/io5";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { SearchOverlay } from "./SearchOverlay";
+import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
-import { MoonSat } from "iconoir-react";
+import { DrawerMenu } from "./DrawerMenu";
 import { Link } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import {
   Box,
   Icon,
@@ -14,14 +17,19 @@ import {
   Heading,
   InputGroup,
   useColorMode,
+  useDisclosure,
   InputLeftElement,
 } from "@chakra-ui/react";
 
-function Header() {
+function Header({ menuEntries }) {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(true);
-  const iconHeigth = { base: 4, sm: 6 };
-  const iconWidth = { base: 4, sm: 6 };
+  const [isDark, setIsDark] = useState(false);
+  const searchDisclosure = useDisclosure();
+  const menuDisclosure = useDisclosure();
+  const menuBtnRef = useRef();
+
+  const iconBigSize = { base: 4, sm: 5, md: 6 };
+  const iconSmallSize = { base: 6, sm: 7, md: 8 };
 
   useEffect(() => {
     colorMode === "dark" ? setIsDark(true) : setIsDark(false);
@@ -29,7 +37,7 @@ function Header() {
 
   return (
     <Box as="header" paddingBottom={4}>
-      <Flex flexFlow="row wrap" justifyContent="space-between" alignItems="center">
+      <Flex flexFlow="row wrap-reverse" justifyContent="space-between" alignItems="center">
         <Heading
           as="h1"
           fontFamily="Molle"
@@ -39,27 +47,51 @@ function Header() {
         </Heading>
 
         <Hide below="md">
-          <InputGroup width={{ base: "30%", sm: "40%", md: "50%", lg: "60%" }}>
+          <InputGroup width={{ md: "50%", lg: "60%" }}>
             <InputLeftElement pointerEvents="none">
-              <Icon as={IoSearchCircleOutline} width={iconWidth} height={iconHeigth} />
+              <Icon as={IoSearchCircleOutline} width={iconSmallSize} height={iconSmallSize} />
             </InputLeftElement>
             <Input
               variant="filled"
-              placeholder="Search tracks, artists, albums, playlists and more..."></Input>
+              placeholder="Search tracks, artists, albums, playlists and more..."
+            />
           </InputGroup>
         </Hide>
 
-        <Flex align="center" columnGap={1}>
+        <Flex flexFlow="row nowrap" alignItems="center" columnGap={1}>
           <Show below="md">
-            <Icon as={IoSearchCircleOutline} width={iconWidth} height={iconHeigth} />
+            <Icon
+              width={iconSmallSize}
+              height={iconSmallSize}
+              as={IoSearchCircleOutline}
+              onClick={searchDisclosure.onOpen}
+            />
           </Show>
-          <Icon as={WiSunrise} width={iconWidth} height={iconHeigth} />
+
+          <Icon as={WiSunrise} width={iconSmallSize} height={iconSmallSize} />
           <Switch onChange={toggleColorMode} defaultChecked={isDark} size="sm" />
-          <Icon as={MoonSat} width={{ base: 2, sm: 4 }} height={{ base: 2, sm: 4 }} />
+          <Icon as={MoonSat} width={iconBigSize} height={iconBigSize} />
+
+          <Show below="md">
+            <Icon
+              as={Menu}
+              ref={menuBtnRef}
+              width={iconBigSize}
+              height={iconBigSize}
+              onClick={menuDisclosure.onOpen}
+            />
+          </Show>
         </Flex>
       </Flex>
+
+      <SearchOverlay {...searchDisclosure} />
+      <DrawerMenu menuEntries={menuEntries} menuBtnRef={menuBtnRef} {...menuDisclosure} />
     </Box>
   );
 }
+
+Header.propTypes = {
+  menuEntries: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export { Header };
