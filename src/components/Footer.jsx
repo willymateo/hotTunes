@@ -1,9 +1,18 @@
 import { Twitter, TelegramCircled, GoogleCircled, Copyright, GitHubOutline } from "iconoir-react";
-import { Box, Text, Divider, Flex, Icon, VStack, Link as ExternalLink } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { PropTypes } from "prop-types";
+import { MenuItems } from "./MenuItems";
+import {
+  Box,
+  Text,
+  Flex,
+  Icon,
+  Hide,
+  VStack,
+  Divider,
+  Link as ExternalLink,
+} from "@chakra-ui/react";
 
-function Footer({ menuEntries }) {
+function Footer() {
   const iconWidth = { base: 8, sm: 6 };
   const iconHeigth = { base: 8, sm: 6 };
 
@@ -44,20 +53,12 @@ function Footer({ menuEntries }) {
           </Flex>
         </VStack>
 
-        <VStack>
-          {menuEntries.map((entry, index) => (
-            <Link key={index} to={entry.toLowerCase()}>
-              {entry}
-            </Link>
-          ))}
-        </VStack>
+        <Hide below="md">
+          <MenuItems flexDirection="row-reverse" />
+        </Hide>
       </Flex>
     </Box>
   );
 }
-
-Footer.propTypes = {
-  menuEntries: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export { Footer };

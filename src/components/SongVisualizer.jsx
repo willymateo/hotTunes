@@ -1,6 +1,5 @@
 import { Box, Heading, Image, Text, Tag, TagLabel, Icon } from "@chakra-ui/react";
 import { PlayOutline } from "iconoir-react";
-import { PropTypes } from "prop-types";
 import { useState } from "react";
 
 function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
@@ -54,12 +53,5 @@ function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
     </Box>
   );
 }
-
-SongVisualizer.propTypes = {
-  topNumber: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-};
 
 export { SongVisualizer };

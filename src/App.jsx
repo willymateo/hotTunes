@@ -12,16 +12,14 @@ import { Radio } from "./routes/Radio";
 import { Home } from "./routes/Home";
 
 function App() {
-  const menuEntries = ["Radio", "Tracks", "Playlists", "Albums", "Artists", "Genres"];
-
   return (
     <>
-      <Header menuEntries={menuEntries} />
+      <Header />
 
       <Grid templateRows="1fr" templateColumns="20% 80%">
         <Hide below="md">
           <GridItem rowStart="1" rowEnd="2" colStart="1" colEnd="2">
-            <Navigation menuEntries={menuEntries} />
+            <Navigation />
           </GridItem>
         </Hide>
         <GridItem rowStart="1" rowEnd="2" colStart={{ base: "1", md: "2" }} colEnd="3">
@@ -39,7 +37,7 @@ function App() {
         </GridItem>
       </Grid>
 
-      <Footer menuEntries={menuEntries} />
+      <Footer />
     </>
   );
 }

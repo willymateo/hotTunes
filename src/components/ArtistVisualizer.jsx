@@ -1,6 +1,5 @@
 import { Box, Heading, Image, Tag, TagLabel, Icon, Flex } from "@chakra-ui/react";
 import { PlayOutline } from "iconoir-react";
-import { PropTypes } from "prop-types";
 import { useState } from "react";
 
 function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
@@ -52,11 +51,5 @@ function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
     </Box>
   );
 }
-
-ArtistVisualizer.propTypes = {
-  artistTopNumber: PropTypes.number.isRequired,
-  artistName: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-};
 
 export { ArtistVisualizer };

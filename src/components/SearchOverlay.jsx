@@ -5,8 +5,8 @@ import {
   Input,
   AlertDialog,
   AlertDialogBody,
-  AlertDialogContent,
   AlertDialogOverlay,
+  AlertDialogContent,
 } from "@chakra-ui/react";
 
 function SearchOverlay({ isOpen, onClose }) {
@@ -32,7 +32,5 @@ function SearchOverlay({ isOpen, onClose }) {
     </AlertDialog>
   );
 }
-
-SearchOverlay.propTypes = {};
 
 export { SearchOverlay };

@@ -5,7 +5,6 @@ import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
 import { DrawerMenu } from "./DrawerMenu";
 import { Link } from "react-router-dom";
-import { PropTypes } from "prop-types";
 import {
   Box,
   Icon,
@@ -21,7 +20,7 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 
-function Header({ menuEntries }) {
+function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
   const [isDark, setIsDark] = useState(false);
   const searchDisclosure = useDisclosure();
@@ -85,13 +84,9 @@ function Header({ menuEntries }) {
       </Flex>
 
       <SearchOverlay {...searchDisclosure} />
-      <DrawerMenu menuEntries={menuEntries} menuBtnRef={menuBtnRef} {...menuDisclosure} />
+      <DrawerMenu menuBtnRef={menuBtnRef} {...menuDisclosure} />
     </Box>
   );
 }
-
-Header.propTypes = {
-  menuEntries: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export { Header };
