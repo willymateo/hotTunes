@@ -1,5 +1,5 @@
 import { IoSearchCircleOutline } from "react-icons/io5";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { SearchOverlay } from "./SearchOverlay";
 import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
@@ -21,18 +21,19 @@ import {
 } from "@chakra-ui/react";
 
 function Header() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(false);
+  const { colorMode, setColorMode } = useColorMode();
+  const [isDark, setIsDark] = useState(colorMode === "dark" ? true : false);
   const searchDisclosure = useDisclosure();
   const menuDisclosure = useDisclosure();
   const menuBtnRef = useRef();
 
-  const iconBigSize = { base: 4, sm: 5, md: 6 };
   const iconSmallSize = { base: 6, sm: 7, md: 8 };
+  const iconBigSize = { base: 4, sm: 5, md: 6 };
 
-  useEffect(() => {
-    colorMode === "dark" ? setIsDark(true) : setIsDark(false);
-  }, []);
+  const switchHandler = () => {
+    setColorMode(isDark === true ? "light" : "dark");
+    setIsDark(!isDark);
+  };
 
   return (
     <Box as="header" paddingBottom={4}>
@@ -68,7 +69,7 @@ function Header() {
           </Show>
 
           <Icon as={WiSunrise} width={iconSmallSize} height={iconSmallSize} />
-          <Switch onChange={toggleColorMode} defaultChecked={isDark} size="sm" />
+          <Switch onChange={switchHandler} isChecked={isDark} size="sm" />
           <Icon as={MoonSat} width={iconBigSize} height={iconBigSize} />
 
           <Show below="md">

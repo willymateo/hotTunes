@@ -13,7 +13,7 @@ function SearchOverlay({ isOpen, onClose }) {
   const iconSize = { base: 6, sm: 8 };
 
   return (
-    <AlertDialog isOpen={isOpen} onClose={onClose}>
+    <AlertDialog isOpen={isOpen} onClose={onClose} autoFocus={true}>
       <AlertDialogOverlay>
         <AlertDialogContent width={{ base: "sm" }}>
           <AlertDialogBody>

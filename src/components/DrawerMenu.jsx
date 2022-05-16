@@ -1,5 +1,6 @@
-import { SidebarExpand } from "iconoir-react";
+import { ArrowRightCircled } from "iconoir-react";
 import { MenuItems } from "./MenuItems";
+import { useRef } from "react";
 import {
   Text,
   Button,
@@ -13,11 +14,17 @@ import {
 } from "@chakra-ui/react";
 
 function DrawerMenu({ menuBtnRef, isOpen, onClose }) {
+  const closeBtnRef = useRef();
   return (
-    <Drawer placement="right" finalFocusRef={menuBtnRef} isOpen={isOpen} onClose={onClose}>
+    <Drawer
+      isOpen={isOpen}
+      placement="right"
+      onClose={onClose}
+      finalFocusRef={menuBtnRef}
+      initialFocusRef={closeBtnRef}>
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerCloseButton as={SidebarExpand} />
+        <DrawerCloseButton as={ArrowRightCircled} />
         <DrawerHeader>
           <Text fontSize={{ base: "sm", sm: "md", md: "lg" }}>The bigest music library</Text>
         </DrawerHeader>
@@ -27,7 +34,7 @@ function DrawerMenu({ menuBtnRef, isOpen, onClose }) {
         </DrawerBody>
 
         <DrawerFooter>
-          <Button variant="outline" onClick={onClose}>
+          <Button variant="outline" ref={closeBtnRef} onClick={onClose}>
             Close
           </Button>
         </DrawerFooter>

@@ -17,14 +17,14 @@ function Footer() {
   const iconHeigth = { base: 8, sm: 6 };
 
   return (
-    <Box as="footer" paddingY="2.5rem" paddingX="1rem">
+    <Box as="footer" paddingY={10} paddingX={4}>
       <Divider />
       <Flex
+        gap={8}
+        paddingTop={10}
         flexFlow="row wrap"
-        justifyContent="space-around"
         alignItems="center"
-        paddingTop="2.5rem"
-        gap="2rem">
+        justifyContent="space-around">
         <Flex flexFlow="row wrap" columnGap={2} justifyContent="center" alignItems="center">
           <Text>2022</Text>
           <Icon as={Copyright} />
@@ -36,12 +36,12 @@ function Footer() {
         <VStack>
           <ExternalLink
             isExternal
-            href="https://github.com/willymateo"
             fontWeight="bold"
-            fontStyle="oblique">
+            fontStyle="oblique"
+            href="https://github.com/willymateo">
             {import.meta.env.VITE_APP_OWNER}
           </ExternalLink>
-          <Flex flexFlow="row wrap" gap="0.5rem" justifyContent="center">
+          <Flex flexFlow="row wrap" gap={2} justifyContent="center">
             <ExternalLink href="https://github.com/willymateo" isExternal>
               <Icon as={GitHubOutline} width={iconWidth} height={iconHeigth} />
             </ExternalLink>
