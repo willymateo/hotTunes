@@ -1,5 +1,5 @@
 import { IoSearchCircleOutline } from "react-icons/io5";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SearchOverlay } from "./SearchOverlay";
 import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
@@ -21,8 +21,8 @@ import {
 } from "@chakra-ui/react";
 
 function Header() {
-  const { colorMode, setColorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(colorMode === "dark" ? true : false);
+  const { setColorMode } = useColorMode();
+  const [isDark, setIsDark] = useState(false);
   const searchDisclosure = useDisclosure();
   const menuDisclosure = useDisclosure();
   const menuBtnRef = useRef();
@@ -34,6 +34,13 @@ function Header() {
     setColorMode(isDark === true ? "light" : "dark");
     setIsDark(!isDark);
   };
+
+  useEffect(() => {
+    const colorModeLocalStorage = localStorage.getItem("chakra-ui-color-mode");
+    if (colorModeLocalStorage) {
+      setIsDark(colorModeLocalStorage === "dark");
+    }
+  }, []);
 
   return (
     <Box as="header" paddingBottom={4}>

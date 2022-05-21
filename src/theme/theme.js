@@ -1,4 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
+import "@vime/core/themes/default.css";
+import "@vime/core/themes/light.css";
 import "./index.css";
 
 const theme = extendTheme({
@@ -10,7 +12,7 @@ const theme = extendTheme({
     "2xl": "1536px",
   },
   config: {
-    initialColorMode: "system",
+    initialColorMode: "light",
     useSystemColorMode: false,
   },
 });
