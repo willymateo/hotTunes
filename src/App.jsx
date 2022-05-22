@@ -1,6 +1,7 @@
 import { Box, Grid, GridItem, Hide } from "@chakra-ui/react";
 import { SoundPlayer } from "./components/SoundPlayer";
 import { Navigation } from "./components/Navigation";
+import { storeConfiguration } from "./redux/store";
 import { Routes, Route } from "react-router-dom";
 import { Playlists } from "./routes/Playlists";
 import { Footer } from "./components/Footer";
@@ -9,17 +10,13 @@ import { Artists } from "./routes/Artists";
 import { Tracks } from "./routes/Tracks";
 import { Albums } from "./routes/Albums";
 import { Genres } from "./routes/Genres";
+import { Provider } from "react-redux";
 import { Radio } from "./routes/Radio";
 import { Home } from "./routes/Home";
-import { useState } from "react";
 
 function App() {
-  const [playingTrackUrl, setPlayingTrackUrl] = useState(
-    "https://listen.hs.llnwd.net/g2/prvw/4/2/4/9/8/911189424.mp3"
-  );
-
   return (
-    <>
+    <Provider store={storeConfiguration}>
       <Header />
 
       <Grid templateRows="1fr" templateColumns="20% 80%">
@@ -44,15 +41,11 @@ function App() {
       </Grid>
 
       <Box position="fixed" bottom="0" width="100%" paddingRight={4}>
-        <SoundPlayer
-          playingTrackUrl={playingTrackUrl}
-          trackName="Titi me preguntó"
-          artistName="Bad Bunny"
-        />
+        <SoundPlayer />
       </Box>
 
       <Footer />
-    </>
+    </Provider>
   );
 }
 

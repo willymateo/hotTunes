@@ -1,6 +1,8 @@
 import { OnePointCircle, SkipNextOutline, SkipPrevOutline } from "iconoir-react";
+import { createPlayingTrack } from "../redux/states/PlayingTrack";
 import { Button, Flex, Icon, Text } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
   Ui,
   Audio,
@@ -15,20 +17,25 @@ import {
   ScrubberControl,
 } from "@vime/react";
 
-function SoundPlayer({ playingTrackUrl, trackName, artistName }) {
-  const [colorMode, setColorMode] = useState("light");
+function SoundPlayer() {
+  const { url, trackName, artistName } = useSelector(state => state.playingTrack);
+  const { theme } = useSelector(state => state.colorMode);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const colorModeLocalStorage = localStorage.getItem("chakra-ui-color-mode");
-    if (colorModeLocalStorage) {
-      setColorMode(colorModeLocalStorage);
-    }
+    dispatch(
+      createPlayingTrack({
+        url: "https://listen.hs.llnwd.net/g2/prvw/4/2/4/9/8/911189424.mp3",
+        trackName: "Titi me preguntó",
+        artistName: "Bad Bunny",
+      })
+    );
   }, []);
 
   return (
-    <Player theme={colorMode}>
+    <Player theme={theme}>
       <Audio preload="auto">
-        <source data-src={playingTrackUrl} type="audio/mp3" />
+        <source data-src={url} type="audio/mp3" />
       </Audio>
 
       <Ui>

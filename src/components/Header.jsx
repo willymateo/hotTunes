@@ -1,5 +1,7 @@
+import { createColorMode, setStoreColorMode } from "../redux/states/ColorMode";
 import { IoSearchCircleOutline } from "react-icons/io5";
-import { useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useRef, useEffect } from "react";
 import { SearchOverlay } from "./SearchOverlay";
 import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
@@ -21,24 +23,34 @@ import {
 } from "@chakra-ui/react";
 
 function Header() {
-  const { setColorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(false);
+  const { isDark } = useSelector(state => state.colorMode);
   const searchDisclosure = useDisclosure();
+  const { setColorMode } = useColorMode();
   const menuDisclosure = useDisclosure();
+  const dispatch = useDispatch();
   const menuBtnRef = useRef();
-
   const iconSmallSize = { base: 6, sm: 7, md: 8 };
   const iconBigSize = { base: 4, sm: 5, md: 6 };
 
   const switchHandler = () => {
-    setColorMode(isDark === true ? "light" : "dark");
-    setIsDark(!isDark);
+    setColorMode(isDark ? "light" : "dark");
+    dispatch(
+      setStoreColorMode({
+        theme: isDark ? "light" : "dark",
+        isDark: !isDark,
+      })
+    );
   };
 
   useEffect(() => {
     const colorModeLocalStorage = localStorage.getItem("chakra-ui-color-mode");
     if (colorModeLocalStorage) {
-      setIsDark(colorModeLocalStorage === "dark");
+      dispatch(
+        createColorMode({
+          theme: colorModeLocalStorage,
+          isDark: colorModeLocalStorage === "dark",
+        })
+      );
     }
   }, []);
 
