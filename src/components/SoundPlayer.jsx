@@ -1,8 +1,9 @@
 import { OnePointCircle, SkipNextOutline, SkipPrevOutline } from "iconoir-react";
-import { createPlayingTrack } from "../redux/states/PlayingTrack";
+import { createPlayingTrack } from "../redux/states/playingTrack";
 import { Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useRef } from "react";
 import {
   Ui,
   Audio,
@@ -12,7 +13,6 @@ import {
   CurrentTime,
   ControlGroup,
   VolumeControl,
-  ControlSpacer,
   PlaybackControl,
   ScrubberControl,
 } from "@vime/react";
@@ -20,7 +20,26 @@ import {
 function SoundPlayer() {
   const { url, trackName, artistName } = useSelector(state => state.playingTrack);
   const { theme } = useSelector(state => state.colorMode);
+  const soundPlayerRef = useRef();
+  const diskAnimControl = useAnimation();
   const dispatch = useDispatch();
+
+  const handlePlay = () => {
+    if (soundPlayerRef.current.playing) {
+      diskAnimControl.start(
+        {
+          rotate: [null, 90, 180, 270, 360],
+        },
+        {
+          repeat: Infinity,
+          ease: "linear",
+          duration: 2,
+        }
+      );
+    } else {
+      diskAnimControl.stop();
+    }
+  };
 
   useEffect(() => {
     dispatch(
@@ -33,7 +52,7 @@ function SoundPlayer() {
   }, []);
 
   return (
-    <Player theme={theme}>
+    <Player ref={soundPlayerRef} theme={theme} onVmPlayingChange={handlePlay}>
       <Audio preload="auto">
         <source data-src={url} type="audio/mp3" />
       </Audio>
@@ -41,26 +60,44 @@ function SoundPlayer() {
       <Ui>
         <Controls fullWidth>
           <ControlGroup>
-            <CurrentTime />
-            <ScrubberControl />
-            <EndTime />
+            <Flex flexFlow="row nowrap" width="100%" alignItems="center" columnGap={2}>
+              <CurrentTime />
+              <ScrubberControl />
+              <EndTime />
+            </Flex>
           </ControlGroup>
 
           <ControlGroup>
-            <Button variant="ghost">
-              <Icon as={SkipPrevOutline} />
-            </Button>
-            <PlaybackControl />
-            <Button variant="ghost">
-              <Icon as={SkipNextOutline} />
-            </Button>
-            <ControlSpacer />
-            <Flex flexFlow="row wrap" alignItems="center" columnGap={1}>
-              <Text>{trackName}</Text>
-              <Icon as={OnePointCircle} />
-              <Text>{artistName}</Text>
+            <Flex
+              wrap="wrap"
+              width="100%"
+              alignItems="center"
+              justifyContent="space-between"
+              flexDir={{ base: "column-reverse", md: "row" }}
+            >
+              <Flex flexFlow="row nowrap" alignItems="center">
+                <Button variant="ghost">
+                  <Icon as={SkipPrevOutline} />
+                </Button>
+                <PlaybackControl />
+                <Button variant="ghost">
+                  <Icon as={SkipNextOutline} />
+                </Button>
+                <VolumeControl />
+              </Flex>
+
+              <Flex flexFlow="row wrap" alignItems="center" columnGap={1}>
+                <Text>{trackName}</Text>
+                <motion.div
+                  style={{
+                    display: "flex",
+                  }}
+                  animate={diskAnimControl}>
+                  <Icon as={OnePointCircle} width={6} height={6} />
+                </motion.div>
+                <Text>{artistName}</Text>
+              </Flex>
             </Flex>
-            <VolumeControl />
           </ControlGroup>
         </Controls>
       </Ui>

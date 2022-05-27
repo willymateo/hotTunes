@@ -17,7 +17,7 @@ function Footer() {
   const iconHeigth = { base: 8, sm: 6 };
 
   return (
-    <Box as="footer" paddingY={10} paddingX={4}>
+    <Box as="footer" paddingTop={10} paddingBottom={32} paddingX={4}>
       <Divider />
       <Flex
         gap={8}

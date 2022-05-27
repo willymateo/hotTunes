@@ -1,5 +1,5 @@
-import { PlayingTrackSlicer, PlayingTrackReducer } from "./states/PlayingTrack";
-import { ColorModeSlicer, ColorModeReducer } from "./states/ColorMode";
+import { PlayingTrackSlicer, PlayingTrackReducer } from "./states/playingTrack";
+import { ColorModeSlicer, ColorModeReducer } from "./states/colorMode";
 import { configureStore } from "@reduxjs/toolkit";
 
 const storeConfiguration = configureStore({
