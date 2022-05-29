@@ -2,6 +2,7 @@ import { createColorMode, setStoreColorMode } from "../redux/states/colorMode";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { SearchOverlay } from "./SearchOverlay";
+import { useTranslation } from "react-i18next";
 import { MoonSat, Menu } from "iconoir-react";
 import { WiSunrise } from "react-icons/wi";
 import { useRef, useEffect } from "react";
@@ -23,6 +24,7 @@ import {
 } from "@chakra-ui/react";
 
 function Header() {
+  const { t } = useTranslation("translation", { keyPrefix: "components.searchOverlay" });
   const { isDark } = useSelector(state => state.colorMode);
   const searchDisclosure = useDisclosure();
   const { setColorMode } = useColorMode();
@@ -72,7 +74,7 @@ function Header() {
             </InputLeftElement>
             <Input
               variant="filled"
-              placeholder="Search tracks, artists, albums, playlists and more..."
+              placeholder={t("placeholder")}
             />
           </InputGroup>
         </Hide>

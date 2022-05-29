@@ -3,7 +3,7 @@
 The best music libary at the moment.<br>
 Visit [Nightly Tunes](https://nightlytunes.netlify.app/)
 
-# Specifications
+## Specifications
 
 - Front-end framework: React Js
 - Bundler:Vite
@@ -12,7 +12,8 @@ Visit [Nightly Tunes](https://nightlytunes.netlify.app/)
 - API: Napster
 - Routing: React Router V6
 - HTTP client: Axios
+- Global state: Redux
 
-# Deploy
+## Deploy
 
 - Hosting: Netlify

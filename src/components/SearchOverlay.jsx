@@ -1,4 +1,5 @@
 import { IoSearchCircleOutline } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 import {
   Icon,
   Flex,
@@ -10,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 
 function SearchOverlay({ isOpen, onClose }) {
+  const { t } = useTranslation("translation", { keyPrefix: "components.searchOverlay" });
   const iconSize = { base: 6, sm: 8 };
 
   return (
@@ -23,7 +25,7 @@ function SearchOverlay({ isOpen, onClose }) {
                 size="sm"
                 variant="unstyled"
                 fontSize={{ base: "xs", sm: "sm" }}
-                placeholder="Search tracks, artists, albums, playlists..."
+                placeholder={t("placeholder")}
               />
             </Flex>
           </AlertDialogBody>

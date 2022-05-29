@@ -1,4 +1,5 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   Group,
@@ -11,6 +12,8 @@ import {
 } from "iconoir-react";
 
 function MenuItems({ flexDirection }) {
+  const { t } = useTranslation("translation", { keyPrefix: "components.menuItems" });
+
   return (
     <Flex
       flexFlow="column wrap"
@@ -21,43 +24,43 @@ function MenuItems({ flexDirection }) {
       <Link to="/">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={HomeSimpleDoor} />
-          <Text>Home</Text>
+          <Text>{t("home")}</Text>
         </Flex>
       </Link>
       <Link to="radio">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={MicSpeaking} />
-          <Text>Radio</Text>
+          <Text>{t("radio")}</Text>
         </Flex>
       </Link>
       <Link to="tracks">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Music1} />
-          <Text>Tracks</Text>
+          <Text>{t("tracks")}</Text>
         </Flex>
       </Link>
       <Link to="playlists">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Playlist} />
-          <Text>Playlists</Text>
+          <Text>{t("playlists")}</Text>
         </Flex>
       </Link>
       <Link to="albums">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={AlbumList} />
-          <Text>Albums</Text>
+          <Text>{t("albums")}</Text>
         </Flex>
       </Link>
       <Link to="artists">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Group} />
-          <Text>Artists</Text>
+          <Text>{t("artists")}</Text>
         </Flex>
       </Link>
       <Link to="Genres">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={EmojiSingLeftNote} />
-          <Text>Genres</Text>
+          <Text>{t("genres")}</Text>
         </Flex>
       </Link>
     </Flex>

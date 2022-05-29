@@ -76,11 +76,11 @@ function SoundPlayer() {
               flexDir={{ base: "column-reverse", md: "row" }}
             >
               <Flex flexFlow="row nowrap" alignItems="center">
-                <Button variant="ghost">
+                <Button variant="ghost" borderRadius="full">
                   <Icon as={SkipPrevOutline} />
                 </Button>
                 <PlaybackControl />
-                <Button variant="ghost">
+                <Button variant="ghost" borderRadius="full">
                   <Icon as={SkipNextOutline} />
                 </Button>
                 <VolumeControl />

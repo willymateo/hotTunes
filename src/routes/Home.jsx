@@ -3,9 +3,11 @@ import { SongVisualizer } from "../components/SongVisualizer";
 import { environment } from "../../config/environment";
 import { Heading, Flex, Box } from "@chakra-ui/react";
 import { musicAPI } from "../services/musicAPI";
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 
 function Home() {
+  const { t } = useTranslation("translation", { keyPrefix: "routes.home" });
   const [topTracks, setTopTracks] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
   const [topAlbums, setTopAlbums] = useState([]);
@@ -26,7 +28,7 @@ function Home() {
       <Flex flexFlow="column wrap" rowGap="2.5rem">
         <Box>
           <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
-            Top Tracks
+            {t("topTracks")}
           </Heading>
           <Flex flexFlow="row wrap" justifyContent="center">
             {topTracks.map((track, index) => {
@@ -47,7 +49,7 @@ function Home() {
 
         <Box>
           <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
-            Top Artists
+            {t("topArtists")}
           </Heading>
           <Flex flexFlow="row wrap" justifyContent="center">
             {topArtists.map((artist, index) => {
@@ -67,7 +69,7 @@ function Home() {
 
         <Box>
           <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
-            Top Albums
+            {t("topAlbums")}
           </Heading>
           <Flex flexFlow="row wrap" justifyContent="center">
             {topAlbums.map((album, index) => {
@@ -88,7 +90,7 @@ function Home() {
 
         <Box>
           <Heading as="h2" fontSize={{ base: "xl", sm: "3xl", md: "4xl" }}>
-            Top Playlists
+            {t("topPlaylists")}
           </Heading>
           <Flex flexFlow="row wrap" justifyContent="center">
             {topPlaylists.map((playlist, index) => {
