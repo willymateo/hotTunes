@@ -72,10 +72,7 @@ function Header() {
             <InputLeftElement pointerEvents="none">
               <Icon as={IoSearchCircleOutline} width={iconSmallSize} height={iconSmallSize} />
             </InputLeftElement>
-            <Input
-              variant="filled"
-              placeholder={t("placeholder")}
-            />
+            <Input variant="filled" placeholder={t("placeholder")} />
           </InputGroup>
         </Hide>
 
