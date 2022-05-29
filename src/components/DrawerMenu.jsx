@@ -1,4 +1,5 @@
 import { ArrowRightCircled } from "iconoir-react";
+import { useTranslation } from "react-i18next";
 import { MenuItems } from "./MenuItems";
 import { useRef } from "react";
 import {
@@ -14,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 function DrawerMenu({ menuBtnRef, isOpen, onClose }) {
+  const { t } = useTranslation("translation", { keyPrefix: "components.drawerMenu" });
   const closeBtnRef = useRef();
   return (
     <Drawer
@@ -35,7 +37,7 @@ function DrawerMenu({ menuBtnRef, isOpen, onClose }) {
 
         <DrawerFooter>
           <Button variant="outline" ref={closeBtnRef} onClick={onClose}>
-            Close
+            {t("close")}
           </Button>
         </DrawerFooter>
       </DrawerContent>
