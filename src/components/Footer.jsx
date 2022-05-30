@@ -12,10 +12,10 @@ import {
   Link as ExternalLink,
 } from "@chakra-ui/react";
 
-function Footer() {
-  const iconWidth = { base: 8, sm: 6 };
-  const iconHeigth = { base: 8, sm: 6 };
+const iconWidth = { base: 8, sm: 6 };
+const iconHeigth = { base: 8, sm: 6 };
 
+function Footer() {
   return (
     <Box as="footer" paddingTop={10} paddingBottom={32} paddingX={4}>
       <Divider />

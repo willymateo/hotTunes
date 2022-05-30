@@ -10,9 +10,10 @@ import {
   AlertDialogContent,
 } from "@chakra-ui/react";
 
+const iconSize = { base: 6, sm: 8 };
+
 function SearchOverlay({ isOpen, onClose }) {
   const { t } = useTranslation("translation", { keyPrefix: "components.searchOverlay" });
-  const iconSize = { base: 6, sm: 8 };
 
   return (
     <AlertDialog isOpen={isOpen} onClose={onClose} autoFocus={true}>

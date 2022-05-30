@@ -1,29 +1,24 @@
-import { MoonSat, Menu as MenuIcon, Translate, NavArrowDown } from "iconoir-react";
 import { createColorMode, setStoreColorMode } from "../redux/states/colorMode";
+import { MoonSat, Menu as MenuIcon } from "iconoir-react";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
-import { US, EC } from "country-flag-icons/react/3x2";
 import { SearchOverlay } from "./SearchOverlay";
 import { useTranslation } from "react-i18next";
 import { WiSunrise } from "react-icons/wi";
 import { useRef, useEffect } from "react";
 import { DrawerMenu } from "./DrawerMenu";
 import { Link } from "react-router-dom";
+import { LngMenu } from "./LngMenu";
 import {
   Box,
   Icon,
   Flex,
   Show,
   Hide,
-  Menu,
   Input,
   Switch,
   Heading,
-  MenuList,
-  MenuItem,
-  IconButton,
   InputGroup,
-  MenuButton,
   useColorMode,
   useDisclosure,
   InputLeftElement,
@@ -31,13 +26,9 @@ import {
 
 const iconSmallSize = { base: 6, sm: 7, md: 8 };
 const iconBigSize = { base: 4, sm: 5, md: 6 };
-const languages = {
-  en: { nativeName: "English", flagIcon: <Icon as={US} /> },
-  es: { nativeName: "Spanish", flagIcon: <Icon as={EC} /> },
-};
 
 function Header() {
-  const { t, i18n } = useTranslation("translation", { keyPrefix: "components.searchOverlay" });
+  const { t } = useTranslation("translation", { keyPrefix: "components.searchOverlay" });
   const { isDark } = useSelector(state => state.colorMode);
   const searchDisclosure = useDisclosure();
   const { setColorMode } = useColorMode();
@@ -89,7 +80,7 @@ function Header() {
           </InputGroup>
         </Hide>
 
-        <Flex flexFlow="row nowrap" alignItems="center" columnGap={1}>
+        <Flex flexFlow="row nowrap" alignItems="center" columnGap={4}>
           {/* Search icon in screens lower than md*/}
           <Show below="md">
             <Icon
@@ -100,36 +91,17 @@ function Header() {
             />
           </Show>
 
+          {/* Switch theme*/}
+          <Flex flexFlow="row nowrap" alignItems="center" justifyContent="center" columnGap={1}>
+            <Icon as={WiSunrise} width={iconSmallSize} height={iconSmallSize} />
+            <Switch onChange={switchHandler} isChecked={isDark} size="sm" />
+            <Icon as={MoonSat} width={iconBigSize} height={iconBigSize} />
+          </Flex>
+
           {/* Translate menu*/}
           <Hide below="md">
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                variant="ghost"
-                icon={<Translate />}
-                rightIcon={<NavArrowDown />}
-              />
-              <MenuList>
-                {Object.keys(languages).map(key => (
-                  <MenuItem
-                    key={key}
-                    onClick={() => {
-                      i18n.changeLanguage(key);
-                    }}
-                    icon={languages[key].flagIcon}
-                    fontWeight={i18n.resolvedLanguage === key ? "bold" : "normal"}
-                    fontStyle={i18n.resolvedLanguage === key ? "italic" : "normal"}>
-                    {languages[key].nativeName}
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
+            <LngMenu />
           </Hide>
-
-          {/* Switch theme*/}
-          <Icon as={WiSunrise} width={iconSmallSize} height={iconSmallSize} />
-          <Switch onChange={switchHandler} isChecked={isDark} size="sm" />
-          <Icon as={MoonSat} width={iconBigSize} height={iconBigSize} />
 
           <Show below="md">
             <Icon

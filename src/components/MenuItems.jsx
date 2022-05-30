@@ -11,6 +11,8 @@ import {
   EmojiSingLeftNote,
 } from "iconoir-react";
 
+const fontSize = { base: "xs", sm: "md" };
+
 function MenuItems({ flexDirection }) {
   const { t } = useTranslation("translation", { keyPrefix: "components.menuItems" });
 
@@ -24,43 +26,43 @@ function MenuItems({ flexDirection }) {
       <Link to="/">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={HomeSimpleDoor} />
-          <Text>{t("home")}</Text>
+          <Text fontSize={fontSize}>{t("home")}</Text>
         </Flex>
       </Link>
       <Link to="radio">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={MicSpeaking} />
-          <Text>{t("radio")}</Text>
+          <Text fontSize={fontSize}>{t("radio")}</Text>
         </Flex>
       </Link>
       <Link to="tracks">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Music1} />
-          <Text>{t("tracks")}</Text>
+          <Text fontSize={fontSize}>{t("tracks")}</Text>
         </Flex>
       </Link>
       <Link to="playlists">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Playlist} />
-          <Text>{t("playlists")}</Text>
+          <Text fontSize={fontSize}>{t("playlists")}</Text>
         </Flex>
       </Link>
       <Link to="albums">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={AlbumList} />
-          <Text>{t("albums")}</Text>
+          <Text fontSize={fontSize}>{t("albums")}</Text>
         </Flex>
       </Link>
       <Link to="artists">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Group} />
-          <Text>{t("artists")}</Text>
+          <Text fontSize={fontSize}>{t("artists")}</Text>
         </Flex>
       </Link>
       <Link to="Genres">
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={EmojiSingLeftNote} />
-          <Text>{t("genres")}</Text>
+          <Text fontSize={fontSize}>{t("genres")}</Text>
         </Flex>
       </Link>
     </Flex>
