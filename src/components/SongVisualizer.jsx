@@ -1,22 +1,9 @@
 import { PlayOutline } from "iconoir-react";
 import { useState } from "react";
-import {
-  Box,
-  Tag,
-  Text,
-  Icon,
-  Image,
-  Heading,
-  TagLabel,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Tag, Text, Icon, Image, Heading, TagLabel } from "@chakra-ui/react";
 
 function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
-  const boxShadow = useColorModeValue(
-    "16px 10px 50px 10px rgba(0,0,0,0.3),inset 0px 0px 100px 100px rgba(0,0,0,0.3)",
-    "10px 10px 50px 20px rgba(0,0,0,0.5),inset 0px 0px 100px 100px rgba(0,0,0,0.7)"
-  );
 
   return (
     <Box width={{ base: "100%", sm: "30%", lg: "20%" }} padding={2}>
@@ -28,9 +15,6 @@ function SongVisualizer({ topNumber, title, subTitle, imageUrl }) {
           fallback={title}
           src={imageUrl}
           width="100%"
-          _hover={{
-            boxShadow,
-          }}
         />
         {showControls && (
           <>
