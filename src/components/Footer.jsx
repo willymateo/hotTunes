@@ -39,7 +39,7 @@ function Footer() {
             fontWeight="bold"
             fontStyle="oblique"
             href="https://github.com/willymateo">
-            {import.meta.env.VITE_APP_OWNER}
+            {import.meta.env.VITE_APP_OWNER} - Willy Mateo Espinoza
           </ExternalLink>
           <Flex flexFlow="row wrap" gap={2} justifyContent="center">
             <ExternalLink href="https://github.com/willymateo" isExternal>

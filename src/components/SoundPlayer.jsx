@@ -44,8 +44,8 @@ function SoundPlayer() {
   useEffect(() => {
     dispatch(
       createPlayingTrack({
-        url: "https://listen.hs.llnwd.net/g2/prvw/4/2/4/9/8/911189424.mp3",
-        trackName: "Titi me preguntó",
+        url: "https://listen.hs.llnwd.net/g3/prvw/9/1/4/0/3/2579730419.mp3",
+        trackName: "Me porto bonito",
         artistName: "Bad Bunny",
       })
     );
