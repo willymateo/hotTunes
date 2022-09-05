@@ -1,22 +1,9 @@
+import { Box, Tag, Icon, Flex, Image, Heading, TagLabel } from "@chakra-ui/react";
 import { PlayOutline } from "iconoir-react";
 import { useState } from "react";
-import {
-  Box,
-  Tag,
-  Icon,
-  Flex,
-  Image,
-  Heading,
-  TagLabel,
-  useColorModeValue,
-} from "@chakra-ui/react";
 
 function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
   const [showControls, setShowControls] = useState(false);
-  const boxShadow = useColorModeValue(
-    "10px 10px 50px 15px rgba(0,0,0,0.3),inset 0px 0px 100px 100px rgba(0,0,0,0.3)",
-    "10px 10px 50px 20px rgba(0,0,0,0.5),inset 0px 0px 100px 100px rgba(0,0,0,0.7)"
-  );
 
   return (
     <Box width={{ base: "100%", sm: "30%", lg: "20%" }} padding={2}>
@@ -26,13 +13,10 @@ function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
             onMouseEnter={() => setShowControls(true)}
             onMouseLeave={() => setShowControls(false)}
             sx={{ aspectRatio: "1/1" }}
-            fallback={artistName}
+            fallbackSrc="https://via.placeholder.com/300"
             borderRadius="full"
             objectFit="cover"
             src={imageUrl}
-            _hover={{
-              boxShadow,
-            }}
           />
           {showControls && (
             <Tag

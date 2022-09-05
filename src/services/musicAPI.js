@@ -9,12 +9,14 @@ const params = {
   range: "week",
 };
 
+// ====================================================================================================================
+// Top
 const getTopTracks = async () => {
   try {
-    const res = await axios.get("/tracks/top", {
+    const { data } = await axios.get("/tracks/top", {
       params,
     });
-    return res.data.tracks;
+    return data.tracks;
   } catch (err) {
     console.log(err);
     return [];
@@ -23,10 +25,11 @@ const getTopTracks = async () => {
 
 const getTopArtists = async () => {
   try {
-    const res = await axios.get("/artists/top", {
-      params,
+    const { data } = await axios.get("/artists/top", {
+      params: { limit: 5 },
     });
-    return res.data.artists;
+    console.log(data);
+    return data.artists;
   } catch (err) {
     console.log(err);
     return [];
@@ -35,10 +38,10 @@ const getTopArtists = async () => {
 
 const getTopAlbums = async () => {
   try {
-    const res = await axios.get("/albums/top", {
+    const { data } = await axios.get("/albums/top", {
       params,
     });
-    return res.data.albums;
+    return data.albums;
   } catch (err) {
     console.log(err);
     return [];
@@ -47,21 +50,36 @@ const getTopAlbums = async () => {
 
 const getTopPlaylists = async () => {
   try {
-    const res = await axios.get("/playlists/top", {
+    const { data } = await axios.get("/playlists/top", {
       params,
     });
-    return res.data.playlists;
+    return data.playlists;
   } catch (err) {
     console.log(err);
     return [];
   }
 };
+// ====================================================================================================================
+
+// ====================================================================================================================
+// Genres
+const getGenres = async () => {
+  try {
+    const { data } = await axios.get("/genres");
+    return data.genres;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+// ====================================================================================================================
 
 const musicAPI = {
   getTopTracks,
   getTopArtists,
   getTopAlbums,
   getTopPlaylists,
+  getGenres,
 };
 
 export { musicAPI };

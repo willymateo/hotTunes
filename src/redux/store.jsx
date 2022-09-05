@@ -7,7 +7,7 @@ const storeConfiguration = configureStore({
     playingTrack: PlayingTrackReducer,
     colorMode: ColorModeReducer,
   },
-  devTools: true,
+  devTools: import.meta.env.DEV,
   middleware: [],
   enhancers: [],
   preloadedState: {

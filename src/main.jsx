@@ -4,6 +4,7 @@ import { theme } from "./theme/theme";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import React from "react";
+import "./locales/i18n";
 
 ReactDOM.render(
   <React.StrictMode>

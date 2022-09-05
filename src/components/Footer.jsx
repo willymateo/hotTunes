@@ -12,10 +12,10 @@ import {
   Link as ExternalLink,
 } from "@chakra-ui/react";
 
-function Footer() {
-  const iconWidth = { base: 8, sm: 6 };
-  const iconHeigth = { base: 8, sm: 6 };
+const iconWidth = { base: 8, sm: 6 };
+const iconHeigth = { base: 8, sm: 6 };
 
+function Footer() {
   return (
     <Box as="footer" paddingTop={10} paddingBottom={32} paddingX={4}>
       <Divider />
@@ -39,7 +39,7 @@ function Footer() {
             fontWeight="bold"
             fontStyle="oblique"
             href="https://github.com/willymateo">
-            {import.meta.env.VITE_APP_OWNER}
+            {import.meta.env.VITE_APP_OWNER} - Willy Mateo Espinoza
           </ExternalLink>
           <Flex flexFlow="row wrap" gap={2} justifyContent="center">
             <ExternalLink href="https://github.com/willymateo" isExternal>
