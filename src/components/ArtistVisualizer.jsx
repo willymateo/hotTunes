@@ -13,7 +13,7 @@ function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
             onMouseEnter={() => setShowControls(true)}
             onMouseLeave={() => setShowControls(false)}
             sx={{ aspectRatio: "1/1" }}
-            fallback={artistName}
+            fallbackSrc="https://via.placeholder.com/300"
             borderRadius="full"
             objectFit="cover"
             src={imageUrl}

@@ -26,8 +26,9 @@ const getTopTracks = async () => {
 const getTopArtists = async () => {
   try {
     const { data } = await axios.get("/artists/top", {
-      params,
+      params: { limit: 5 },
     });
+    console.log(data);
     return data.artists;
   } catch (err) {
     console.log(err);
