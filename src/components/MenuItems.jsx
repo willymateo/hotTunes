@@ -8,7 +8,6 @@ import {
   AlbumList,
   MicSpeaking,
   HomeSimpleDoor,
-  EmojiSingLeftNote,
 } from "iconoir-react";
 
 const fontSize = { base: "xs", sm: "md" };
@@ -57,12 +56,6 @@ function MenuItems({ flexDirection }) {
         <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
           <Icon as={Group} />
           <Text fontSize={fontSize}>{t("artists")}</Text>
-        </Flex>
-      </Link>
-      <Link to="Genres">
-        <Flex flexDirection={flexDirection} wrap="nowrap" alignItems="center" columnGap={3}>
-          <Icon as={EmojiSingLeftNote} />
-          <Text fontSize={fontSize}>{t("genres")}</Text>
         </Flex>
       </Link>
     </Flex>

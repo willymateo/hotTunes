@@ -1,6 +1,6 @@
+import { Box, Tag, Icon, Flex, Image, Heading, TagLabel } from "@chakra-ui/react";
 import { PlayOutline } from "iconoir-react";
 import { useState } from "react";
-import { Box, Tag, Icon, Flex, Image, Heading, TagLabel } from "@chakra-ui/react";
 
 function ArtistVisualizer({ artistTopNumber, artistName, imageUrl }) {
   const [showControls, setShowControls] = useState(false);

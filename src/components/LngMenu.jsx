@@ -13,7 +13,7 @@ import {
   MenuOptionGroup,
 } from "@chakra-ui/react";
 
-function LngMenu({ showCaption = false, iconDirection = "down" }) {
+function LngMenu({ showLabel = false, iconDirection = "down" }) {
   const { t, i18n } = useTranslation("translation", { keyPrefix: "components.lngMenu" });
   const languages = {
     en: { nativeName: t("english"), flagIcon: <Icon as={US} /> },
@@ -28,7 +28,7 @@ function LngMenu({ showCaption = false, iconDirection = "down" }) {
         rightIcon={iconDirection === "up" ? <NavArrowUp /> : <NavArrowDown />}>
         <Flex align="center">
           <Translate />
-          {showCaption && <Text fontSize={{ base: "xs", sm: "md" }}>{t("language")}</Text>}
+          {showLabel && <Text fontSize={{ base: "xs", sm: "md" }}>{t("language")}</Text>}
         </Flex>
       </MenuButton>
 

@@ -9,7 +9,6 @@ import { Header } from "./components/Header";
 import { Artists } from "./routes/Artists";
 import { Tracks } from "./routes/Tracks";
 import { Albums } from "./routes/Albums";
-import { Genres } from "./routes/Genres";
 import { Provider } from "react-redux";
 import { Radio } from "./routes/Radio";
 import { Home } from "./routes/Home";
@@ -34,7 +33,6 @@ function App() {
               <Route path="playlists" element={<Playlists />} />
               <Route path="albums" element={<Albums />} />
               <Route path="artists" element={<Artists />} />
-              <Route path="genres" element={<Genres />} />
             </Routes>
           </section>
         </GridItem>

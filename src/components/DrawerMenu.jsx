@@ -41,7 +41,7 @@ function DrawerMenu({ menuBtnRef, isOpen, onClose }) {
 
         <DrawerFooter>
           <Flex flexFlow="row wrap" alignItems="center" justifyContent="space-between" width="100%">
-            <LngMenu showCaption={true} iconDirection="up" />
+            <LngMenu showLabel={true} iconDirection="up" />
             <Button
               variant="outline"
               ref={closeBtnRef}
