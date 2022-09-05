@@ -13,6 +13,7 @@ Visit [Nightly Tunes](https://development--nightlytunes.netlify.app/)
 - Routing: React Router V6
 - HTTP client: Axios
 - Global state: Redux
+- Localization: i18next & react-i18next
 
 ## Deploy
 
